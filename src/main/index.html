@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script type="text/javascript" src="system.js"></script>
+		<script type="text/javascript" src="angular.js"></script>
+		
+		<script type="text/javascript">
+			SystemJS.config({
+			  map: {
+			    'plugin-babel': 'plugin-babel.js',
+			    'systemjs-babel-build': 'systemjs-babel-browser.js',
+			    app : '/'
+			  },
+			  transpiler: 'plugin-babel',
+			  meta: {
+			    '*.js': {
+			      babelOptions: {
+			        stage1: true,
+			        es2015: false
+			      }
+			    }
+			  }
+			});
+		</script>
+		<script type="text/javascript">
+			SystemJS.import('app/app.js');
+		</script>
+	</head>
+	<body>
+		<div ng-controller="TestController as $ctrl">
+			<h3>Add Names</h3>
+			<input type="text" ng-model='$ctrl.title'>
+			<button ng-click="$ctrl.addName()">Add</button>
+			<p ng-repeat="name in $ctrl.names">{{name}}</p>
+		</div>	 
+	</body>
+</html>
