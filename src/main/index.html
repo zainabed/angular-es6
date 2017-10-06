@@ -2,7 +2,7 @@
 	<head>
 		<script type="text/javascript" src="system.js"></script>
 		<script type="text/javascript" src="angular.js"></script>
-		
+
 		<script type="text/javascript">
 			SystemJS.config({
 			  map: {
@@ -22,7 +22,8 @@
 			});
 		</script>
 		<script type="text/javascript">
-			SystemJS.import('app/app.js');
+			SystemJS.import('app/card.module.js');
+			SystemJS.import('app/app.module.js');
 		</script>
 	</head>
 	<body>
@@ -31,6 +32,6 @@
 			<input type="text" ng-model='$ctrl.title'>
 			<button ng-click="$ctrl.addName()">Add</button>
 			<p ng-repeat="name in $ctrl.names">{{name}}</p>
-		</div>	 
+		</div>
 	</body>
 </html>
